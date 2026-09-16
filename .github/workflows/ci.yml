@@ -11,10 +11,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        ocaml-compiler: ["5.1", "5.2", "5.3", "5.4"]
+        ocaml-compiler: ["5.2", "5.3", "5.4"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      # opam のリポジトリ取得が git の background maintenance と競合して
+      # .git/objects/maintenance.lock で落ちることがあるため無効化しておく
+      - run: git config --global maintenance.auto false
       - uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
@@ -27,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: git config --global maintenance.auto false
       - uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: "5.3"
