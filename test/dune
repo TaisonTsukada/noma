@@ -1,0 +1,62 @@
+; 生 socket で HTTP を喋る検査用クライアント。複数のテストから使う。
+
+(library
+ (name http_probe)
+ (modules http_probe)
+ (libraries noma noma-cohttp-eio eio eio_main alcotest http))
+
+(tests
+ (names
+  test_noma
+  test_router
+  test_contract
+  test_server
+  test_middleware
+  test_config)
+ (modules
+  test_noma
+  test_router
+  test_contract
+  test_server
+  test_middleware
+  test_config)
+ (libraries
+  noma
+  noma.test
+  noma-cohttp-eio
+  http_probe
+  cohttp-eio
+  eio
+  eio_main
+  alcotest
+  http
+  hmap
+  mtime
+  logs))
+
+; graceful shutdown は実プロセスに実シグナルを送らないと確かめられないので、
+; サーバーを別の実行ファイルに分けて子プロセスとして起動する。
+
+(executable
+ (name shutdown_server)
+ (modules shutdown_server)
+ (libraries noma noma-cohttp-eio eio eio_main))
+
+(test
+ (name test_shutdown)
+ (modules test_shutdown)
+ (libraries
+  noma
+  noma-cohttp-eio
+  http_probe
+  eio
+  eio.unix
+  eio_main
+  alcotest
+  http)
+ (deps shutdown_server.exe)
+ (action
+  (setenv
+   NOMA_SHUTDOWN_SERVER
+   %{dep:shutdown_server.exe}
+   (run %{test}))))

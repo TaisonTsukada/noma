@@ -1,0 +1,12 @@
+(executable
+ (name main)
+ (libraries
+  noma
+  noma-cohttp-eio
+  noma-yojson
+  eio
+  eio_main
+  logs
+  mtime
+  yojson
+  http))

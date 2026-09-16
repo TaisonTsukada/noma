@@ -1,0 +1,4 @@
+(library
+ (name noma_test)
+ (public_name noma.test)
+ (libraries noma eio http hmap))

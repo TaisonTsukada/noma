@@ -1,0 +1,4 @@
+(library
+ (name noma_yojson)
+ (public_name noma-yojson)
+ (libraries noma yojson http))

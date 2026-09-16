@@ -1,0 +1,4 @@
+(library
+ (name noma_cohttp_eio)
+ (public_name noma-cohttp-eio)
+ (libraries noma cohttp-eio cohttp http eio eio.unix unix))
