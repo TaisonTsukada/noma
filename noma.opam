@@ -14,11 +14,11 @@ homepage: "https://github.com/taison-tsukada/noma"
 bug-reports: "https://github.com/taison-tsukada/noma/issues"
 depends: [
   "dune" {>= "3.20"}
-  "ocaml" {>= "5.2.0"}
+  "ocaml" {>= "5.1.0"}
   "http" {>= "6.0.0"}
   "hmap" {>= "0.8.1"}
   "uri" {>= "4.2.0"}
-  "eio" {>= "1.0"}
+  "eio" {>= "1.2"}
   "logs" {>= "0.7.0"}
   "routes" {>= "2.0.0"}
   "mtime" {>= "2.0.0"}

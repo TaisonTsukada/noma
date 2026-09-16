@@ -17,11 +17,11 @@
    nothing about sockets - wire protocols live in adapter packages.")
  (tags ("http" "web" "eio" "effects"))
  (depends
-  (ocaml (>= 5.2.0))
+  (ocaml (>= 5.1.0))
   (http (>= 6.0.0))
   (hmap (>= 0.8.1))
   (uri (>= 4.2.0))
-  (eio (>= 1.0))
+  (eio (>= 1.2))
   (logs (>= 0.7.0))
   (routes (>= 2.0.0))
   (mtime (>= 2.0.0))
@@ -37,10 +37,10 @@
    request head, keep-alive body drain-or-close, RFC-correct framing.")
  (tags ("http" "web" "eio"))
  (depends
-  (ocaml (>= 5.2.0))
+  (ocaml (>= 5.1.0))
   (noma (= :version))
   (cohttp-eio (>= 6.0.0))
-  (eio_main (>= 1.0))
+  (eio_main (>= 1.2))
   (alcotest :with-test)
   (odoc :with-doc)))
 
@@ -52,7 +52,7 @@
    constructors. noma core deliberately does not choose a JSON library.")
  (tags ("http" "web" "json"))
  (depends
-  (ocaml (>= 5.2.0))
+  (ocaml (>= 5.1.0))
   (noma (= :version))
   (yojson (>= 2.0.0))
   (alcotest :with-test)
